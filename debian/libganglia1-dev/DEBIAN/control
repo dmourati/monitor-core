@@ -1,0 +1,15 @@
+Package: libganglia1-dev
+Source: ganglia
+Version: 3.3.0-1.5
+Architecture: amd64
+Maintainer: Stuart Teasdale <sdt@debian.org>
+Installed-Size: 236
+Depends: libganglia1 (= 3.3.0-1.5)
+Section: libdevel
+Priority: optional
+Homepage: http://www.ganglia.info/
+Description: cluster monitoring toolkit - development libraries
+ Ganglia is a scalable, real-time cluster monitoring environment
+ that collects cluster statistics in an open and well-defined XML format.
+ .
+ This package contains development libraries.

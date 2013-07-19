@@ -1,0 +1,12 @@
+90bd4c6ff9be0b9a85e834330f9e633a  usr/include/ganglia.h
+d7c6c4933d61694e6130619f4e13e84a  usr/include/ganglia_gexec.h
+7f3ce759bc4c44e3857cd2f95899220a  usr/include/gm_file.h
+8f3f1f14b453b6f78e255a49465cbd00  usr/include/gm_metric.h
+8e92935ef922de4c5cf8b66cdd79ed7d  usr/include/gm_mmn.h
+59c4939e418de645a3b35f816508de1f  usr/include/gm_msg.h
+2dc5e86333a4fc68403393e6bb3d5bff  usr/include/gm_protocol.h
+6e830c3f87f058148104f5d59f331f04  usr/include/gm_value.h
+a90ff4bb4d6901c265de0d78d0856f2c  usr/lib/libganglia.a
+88ade05a06dbfc4965b64250589cfefe  usr/lib/libganglia.la
+03f91c5ac81756a4f7d3aa526f798bdb  usr/share/doc/libganglia1-dev/changelog.Debian.gz
+db711cb7844bceb776d2e180e03cee27  usr/share/doc/libganglia1-dev/copyright

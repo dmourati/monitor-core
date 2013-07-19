@@ -196,6 +196,11 @@ AC_ARG_WITH( libpcre,
 [if test x"$withval" != xno; then libpcre="yes"; libpcrepath="$withval"; fi],
 [libpcre=yes; libpcrepath=yes ])
 
+AC_ARG_WITH( libcurl,
+[  --with-libcurl=DIR      Specify location for libcurl],
+[if test x"$withval" != xno; then libcurl="yes"; libcurlpath="$withval"; fi],
+[libcurl=yes; libcurlpath=yes ])
+
 AC_ARG_WITH( moduledir,
 [  --with-moduledir=DIR    Base directory for dynamically loadable modules],
   moduledir="$withval",
@@ -503,7 +508,7 @@ if test x"$libaprpath" != x && test x"$libaprpath" != xyes; then
     exit 1;
   fi
 else
-  PKG_CHECK_MODULES([APR],[apr-1])
+  PKG_CHECK_MODULES([APR], [apr-1 apr-util-1])
   LDFLAGS="$LIBS $APR_LIBS"
   APR_INCLUDES="$APR_CFLAGS"
 fi
@@ -519,6 +524,23 @@ if test x"$memcache" == xyes; then
   AC_SUBST(DEPS_CFLAGS)
   AC_SUBST(DEPS_LIBS)
   CFLAGS="$CFLAGS -DWITH_MEMCACHED"
+fi
+
+echo
+echo Checking for libriemann_c_client
+AC_ARG_WITH( riemann,
+[  --with-riemann        enable riemann metrics publishing],
+if test x"$withval" = xyes; then riemann="yes"; fi)
+
+if test x"$riemann" == xyes; then
+  AC_CHECK_LIB(riemann_c_client, riemann_client_send_message)
+  if test x"$ac_cv_lib_riemann_c_client_riemann_client_send_message" = xyes; then
+    CFLAGS="$CFLAGS -DWITH_RIEMANN"
+    LDFLAGS="$LDFLAGS -lriemann_c_client"
+  else
+    echo "libriemann_c_client not found"
+    exit 1
+  fi
 fi
 
 echo
@@ -586,7 +608,26 @@ if test x"$libpcre" == xyes ; then
 else
   echo "building without PCRE support"
 fi
+
 echo
+echo Checking for cURL
+if test x"$libcurlpath" != x && test x"$libcurlpath" != xyes; then
+  CFLAGS="$CFLAGS -I$libcurlpath/include"
+  LDFLAGS="$LDFLAGS -L$libcurlpath/${LIB_SUFFIX}"
+  echo "Added -I$libcurlpath/include to CFLAGS"
+  echo "Added -L$libcurlpath/${LIB_SUFFIX} to LDFLAGS"
+fi
+if test x"$libcurl" == xyes ; then
+  AC_CHECK_LIB(curl, curl_global_init)
+  if test x"$ac_cv_lib_curl_curl_global_init" = xyes; then
+    echo "Found a suitable curl library"
+  else
+    echo "libcurl not found, specify --with-libcurl=no to build without cURL support"
+    exit;
+  fi
+else
+  echo "building without cURL support"
+fi
 
 echo
 echo Checking for systemd

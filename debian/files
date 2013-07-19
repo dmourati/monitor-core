@@ -1,0 +1,6 @@
+ganglia-monitor-python_3.3.0-1.5_all.deb net optional
+ganglia-webfrontend_3.3.0-1.5_all.deb net optional
+ganglia-monitor_3.3.0-1.5_amd64.deb net optional
+gmetad_3.3.0-1.5_amd64.deb net optional
+libganglia1_3.3.0-1.5_amd64.deb libs optional
+libganglia1-dev_3.3.0-1.5_amd64.deb libdevel optional

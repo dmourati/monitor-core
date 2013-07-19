@@ -1,0 +1,11 @@
+e1d78799e173e190e15f2b1898d5f1ab  usr/lib/ganglia/modcpu.so
+3a0e6ea15d1facdbf5c3dd677c1eb1b7  usr/lib/ganglia/moddisk.so
+4ca5885a2779cc99ffad03486050735b  usr/lib/ganglia/modload.so
+2b893a900f0b6fdc7b2aeafee4d5c01f  usr/lib/ganglia/modmem.so
+d79a8f3c02ce3add19bc4dfdcc463ad8  usr/lib/ganglia/modmulticpu.so
+225a5e6b1657ccba873c810f5f716b88  usr/lib/ganglia/modnet.so
+8c1d8e99511bc02a451612a1db84eecd  usr/lib/ganglia/modproc.so
+c5d6943896592b1b67a9456e613f93e0  usr/lib/ganglia/modsys.so
+a78f0e05cf53f99678d4420c2473b357  usr/lib/libganglia-3.6.0.so.0.0.0
+03f91c5ac81756a4f7d3aa526f798bdb  usr/share/doc/libganglia1/changelog.Debian.gz
+db711cb7844bceb776d2e180e03cee27  usr/share/doc/libganglia1/copyright
